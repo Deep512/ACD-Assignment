@@ -1,12 +1,11 @@
 # Automata and Compiler Design
 
-#### Code for the IT250 Assignments
+#### Code for the IT250 Assignment 2
 
-1.  [x] Lexer to identify tokens in a C program
-2.  [x] Parser to identify a specified grammar
+1.  [x] Parser to identify a specified grammar
 
 #### Team Members:
 
-- Prajna N Hebbar - 181IT132
-- Adharsh Kamath - 181IT202
-- Sriram Rao - 181IT246
+- Deep Dhanuka - 181IT214
+- Prasad Jagtap - 181IT134
+- Piyush Ingale - 181IT232
