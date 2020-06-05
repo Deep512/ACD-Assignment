@@ -1,24 +1,6 @@
-/*
-ACD assignment - 2:
-Write a parser to identify the following grammar:
+/* Definition Section */
 
-
-stmts   : stmts stmt 
-        | epsilon
-stmt    : ;
-        | expr ;
-	    | if (expr) stmt
-	    | if (expr) stmt else stmt
-	    | for (expr ; expr ; expr ) stmt
-	    |  { stmts }
-
-
-Team Members:
-Prajna N Hebbar - 181IT132
-Adharsh Kamath - 181IT202
-Sriram Rao - 181IT246
-*/
-
+/* --------------------------------------------------------------- */
 %{
 	#include <stdio.h> 
 	#include <stdlib.h> 
@@ -35,6 +17,12 @@ OPERATOR		[-+*/]|"=="|">="|"<="|">"|"<"
 U_OPERATOR		"++"|"--"	
 SINGLE_CHAR		[=(){};]
 
+/* --------------------------------------------------------------- */
+
+/* Rules Section */
+
+/* --------------------------------------------------------------- */
+
 %%
 
 \n 				{ yycolumn = 0; yylineno++; }
@@ -50,7 +38,15 @@ SINGLE_CHAR		[=(){};]
 .				{ yycolumn += 1; return yytext[0];}
 
 %%
-  
+
+/* --------------------------------------------------------------- */
+
+/* User Code Section */
+
+/* --------------------------------------------------------------- */
+
 int yywrap() {  
 	return -1;  
 }
+
+/* --------------------------------------------------------------- */

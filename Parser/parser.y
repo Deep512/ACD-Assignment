@@ -1,27 +1,7 @@
-/*
-ACD assignment - 2:
-Write a parser to identify the following grammar:
-
-
-stmts   : stmts stmt 
-        | epsilon
-stmt    : ;
-        | expr ;
-	    | if (expr) stmt
-	    | if (expr) stmt else stmt
-	    | for (expr ; expr ; expr ) stmt
-	    |  { stmts }
-
-
-Team Members:
-Prajna N Hebbar - 181IT132
-Adharsh Kamath - 181IT202
-Sriram Rao - 181IT246
-*/
-
-%{ 
-
 /* Definition section */
+
+/* --------------------------------------------------------- */
+%{ 
 
     #include <stdio.h> 
     #include <string.h>    
@@ -33,20 +13,19 @@ Sriram Rao - 181IT246
     int yycolumn = 0;
       
 %} 
-  
-%union { 
-   char* f; 
-} 
-  
-/* %token <f> EXPR */
 
 %token IF FOR ID UNARY_OP OP NUM
 %nonassoc LOWER_THAN_ELSE
 %nonassoc ELSE
+ 
+/* --------------------------------------------------------- */
 
+/* Rules Section */
+
+/* --------------------------------------------------------- */
 %%
    STMTS :   STMTS STMT
-         |   %empty
+         |   /* %empty */
          ;
 
    STMT  :   ';'
@@ -70,6 +49,12 @@ Sriram Rao - 181IT246
          ;
 %% 
   
+/* --------------------------------------------------------- */
+
+/* Auxiliary Routines */
+
+/* --------------------------------------------------------- */
+
 int main() {
     extern int yylineno;
     yyparse();
@@ -91,3 +76,5 @@ int yyerror(const char *msg) {
     success = 0;
     return 1;
 }
+
+/* --------------------------------------------------------- */
